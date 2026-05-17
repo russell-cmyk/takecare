@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Take Care Property Maintenance</title>
+    <meta name="description" content="Comprehensive property maintenance in the Ashburton District. Expert exterior cleaning, roofing repairs, hardscaping, driveways, and landscaping.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1abc9c; 
+            --primary-hover: #16a085;
+            --text-dark: #2c3e50; 
+            --text-light: #7f8c8d; 
+            --bg-light: #f8f9fa; 
+            --white: #ffffff;
+            --border-color: #e0e6ed;
+            
+            --font-headers: 'Roboto', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --max-width: 1280px;
+            --section-pad: 80px 20px;
+        }
+
+        /* --- Global Reset & Basics --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text-light);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-headers);
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease, background-color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+        /* --- Modular Layout System --- */
+        .mainframe { display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        .section { padding: var(--section-pad); }
+        .section-alt { background-color: var(--bg-light); }
+        
+        /* Grid Systems */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; }
+        .align-center { align-items: center; }
+
+        /* --- Global Components --- */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
+
+        /* --- Injected Header Styles --- */
+        .control-bar { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { font-family: var(--font-headers); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
+        .main-nav ul { display: flex; gap: 30px; }
+        .main-nav a { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; }
+        .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
+
+        /* --- Services Page Specific Styles --- */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('images/services-hero.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        .page-header p { font-size: 1.2rem; color: #f1f2f6; max-width: 700px; margin: 0 auto; }
+
+        .service-detail-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 15px; }
+        .service-detail-text p { font-size: 1.1rem; margin-bottom: 20px; }
+        .service-detail-list { margin-bottom: 30px; }
+        .service-detail-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+        .service-detail-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .service-image-container img {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CTA Banner */
+        .cta-banner { background-color: var(--text-dark); color: var(--white); text-align: center; }
+        .cta-banner h2 { color: var(--white); }
+
+        /* --- Injected Footer Styles --- */
+        .site-footer { background-color: var(--text-dark); color: var(--white); padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background-color: var(--primary); }
+        .footer-col p, .footer-col li { color: #bdc3c7; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--primary); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .social-icons a:hover { background-color: var(--primary); }
+        .social-icons svg { width: 20px; height: 20px; fill: var(--white); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; color: #95a5a6; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-nav, .header-cta { display: none; }
+            .mobile-toggle { display: block; }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 50px 20px; }
+            .page-header h1 { font-size: 2.2rem; }
+            .grid-2 { gap: 40px; }
+            /* Force images to always be below text on mobile regardless of desktop alternating order */
+            .mobile-reverse { display: flex; flex-direction: column-reverse; }
+        }
+    </style>
+
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+<body>
+<div class="mainframe">
+    
+    <site-header></site-header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>From clearing gutters to building driveways. Professional property maintenance solutions for Rakaia and the Ashburton District.</p>
+            </div>
+        </section>
+
+        <section class="section" id="cleaning">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>Exterior Cleaning & Treatments</h2>
+                    <p>Over time, the Canterbury weather takes a toll on your property. Dirt, grime, moss, and lichen don't just look messy—they can cause long-term damage to your roofing and cladding if left untreated.</p>
+                    <p>We provide comprehensive exterior washing to breathe new life into your home. Our specialized moss and lichen kill treatments are designed to safely eradicate invasive growths at the root.</p>
+                    <ul class="service-detail-list">
+                        <li><strong>External House Washing:</strong> Safe and effective removal of dirt and buildup from exterior walls and outbuildings.</li>
+                        <li><strong>Lichen & Moss Kill:</strong> Specialized spray treatments. <em>(Note: Best applied during active growth phases in Autumn or Spring for maximum results).</em></li>
+                        <li><strong>Driveway & Pathway Cleaning:</strong> Restoring slip-resistance and visual appeal to your concrete surfaces.</li>
+                    </ul>
+                    <a href="contact.html?service=cleaning" class="btn-outline">Request a Cleaning Quote</a>
+                </div>
+                <div class="service-image-container">
+                    <img src="images/serv-wash.jpg" alt="House exterior washing and lichen removal">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="roofing">
+            <div class="container grid-2 align-center mobile-reverse">
+                <div class="service-image-container">
+                    <img src="images/serv-roof.jpg" alt="Roof and gutter repair work">
+                </div>
+                <div class="service-detail-text">
+                    <h2>Roofing & Drainage Maintenance</h2>
+                    <p>Water is your property's worst enemy. Blocked gutters, cracked tiles, or poor drainage can quickly lead to expensive internal water damage or pooling around your foundations.</p>
+                    <p>We take the hassle out of working at heights. Whether it's a minor leak repair, a complete gutter replacement, or fixing up your property's drainage flow, we ensure water goes exactly where it's supposed to.</p>
+                    <ul class="service-detail-list">
+                        <li><strong>Roof & Gutter Repairs:</strong> Fixing leaks, securing loose iron or tiles, and maintaining flashings.</li>
+                        <li><strong>Gutter Clearing & Replacement:</strong> Removing debris blockages or installing entirely new spouting systems.</li>
+                        <li><strong>Drainage Repairs:</strong> Fixing broken pipes, unblocking surface drains, and preventing water pooling on your section.</li>
+                    </ul>
+                    <a href="contact.html?service=roofing" class="btn-outline">Request a Roofing Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="hardscaping">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>Hardscaping, Driveways & Fencing</h2>
+                    <p>Improve your home's street appeal and create functional outdoor living spaces. We construct, repair, and maintain the structural elements of your landscape.</p>
+                    <p>From pouring a fresh concrete driveway that can handle heavy traffic, to building a private boundary fence or a summer deck, our workmanship is built to last.</p>
+                    <ul class="service-detail-list">
+                        <li><strong>Driveway Construction:</strong> Expert installation and repair offering options in solid concrete, durable asphalt, or decorative pavers.</li>
+                        <li><strong>Fencing Solutions:</strong> Boundary fences, secure pool fencing, and general repairs to keep your property safe and private.</li>
+                        <li><strong>Decks & Outdoor Areas:</strong> Construction and upkeep of timber decking and outdoor entertainment spaces.</li>
+                    </ul>
+                    <a href="contact.html?service=hardscaping" class="btn-outline">Request a Hardscaping Quote</a>
+                </div>
+                <div class="service-image-container">
+                    <img src="images/serv-hard.jpg" alt="Newly constructed concrete driveway and fencing">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="landscaping">
+            <div class="container grid-2 align-center mobile-reverse">
+                <div class="service-image-container">
+                    <img src="images/serv-land.jpg" alt="Tree trimming and garden cleanup services">
+                </div>
+                <div class="service-detail-text">
+                    <h2>Landscaping & Groundskeeping</h2>
+                    <p>An overgrown section isn't just an eyesore; it can harbor pests and create hazards during high winds. We help you reclaim your yard and keep your grounds looking immaculate.</p>
+                    <p>Whether you need a dangerous branch removed safely, or just a massive seasonal garden tidy-up, we bring the tools and the muscle to get it sorted efficiently.</p>
+                    <ul class="service-detail-list">
+                        <li><strong>Tree Trimming & Pruning:</strong> Keeping trees healthy and away from powerlines or rooflines.</li>
+                        <li><strong>Tree Removal:</strong> Safe and controlled felling and removal of unwanted or dead trees.</li>
+                        <li><strong>Garden Cleanup:</strong> Comprehensive tidying, green waste removal, and section clearing.</li>
+                    </ul>
+                    <a href="contact.html?service=landscaping" class="btn-outline">Request a Grounds Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="general">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>General Maintenance & Network</h2>
+                    <p>Sometimes you just have a list of odd jobs that need doing. Our "Everything Property Maintenance" approach means we can tackle the minor fixes that keep your property running smoothly.</p>
+                    <p><strong>The Take Care Guarantee:</strong> We are completely honest about our capabilities. If we inspect a job and realize it requires a highly specialized tradesperson (like a master electrician or specialized plumber), we won't bluff our way through it. Through our <em>Contractor Networking</em> promise, we will organize or recommend a trusted, vetted professional who can step in.</p>
+                    <a href="contact.html?service=general" class="btn-primary" style="margin-top: 15px;">Discuss Your Maintenance List</a>
+                </div>
+                <div class="service-image-container">
+                    <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 40px; text-align: center;">
+                        <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;">Ashburton's Trusted Network</h3>
+                        <p style="color: var(--text-light);">We pride ourselves on getting the job done properly. If we can't do it, we know the exact local professional who can.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-banner">
+            <div class="container">
+                <h2>Ready to tick those jobs off the list?</h2>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">Contact Joel today for a reliable quote and friendly local service.</p>
+                <a href="contact.html" class="btn-primary" style="background-color: var(--white); color: var(--text-dark); font-size: 1.1rem; padding: 15px 30px;">Request a Free Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+</div>
+</body>
+</html>

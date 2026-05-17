@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Take Care Property Maintenance</title>
+    <meta name="description" content="Get a free quote for property maintenance in Rakaia and the Ashburton District. Contact Joel at Take Care Property Maintenance today.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1abc9c; 
+            --primary-hover: #16a085;
+            --text-dark: #2c3e50; 
+            --text-light: #7f8c8d; 
+            --bg-light: #f8f9fa; 
+            --white: #ffffff;
+            --border-color: #e0e6ed;
+            
+            --font-headers: 'Roboto', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --max-width: 1280px;
+            --section-pad: 80px 20px;
+        }
+
+        /* --- Global Reset & Basics --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text-light);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-headers);
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease, background-color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* --- Modular Layout System --- */
+        .mainframe {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main { flex-grow: 1; }
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section { padding: var(--section-pad); }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; }
+        
+        /* --- Global Components --- */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- Injected Header Styles --- */
+        .control-bar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { font-family: var(--font-headers); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
+        .main-nav ul { display: flex; gap: 30px; }
+        .main-nav a { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; }
+        .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
+
+        /* --- Contact Page Specific Styles --- */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('images/contact-hero.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            color: #f1f2f6;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .info-block {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+        }
+        .info-block h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .info-block a {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .info-block a:hover {
+            color: var(--primary);
+        }
+
+        /* Tactical Form Styling */
+        .contact-form {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15); /* Teal focus glow */
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* --- Injected Footer Styles --- */
+        .site-footer { background-color: var(--text-dark); color: var(--white); padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background-color: var(--primary); }
+        .footer-col p, .footer-col li { color: #bdc3c7; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--primary); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .social-icons a:hover { background-color: var(--primary); }
+        .social-icons svg { width: 20px; height: 20px; fill: var(--white); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; color: #95a5a6; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-nav, .header-cta { display: none; }
+            .mobile-toggle { display: block; }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 50px 20px; }
+            .contact-form { padding: 25px; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+<body>
+<div class="mainframe">
+    
+    <site-header></site-header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Ready to get your property sorted? We are here to help.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid-2">
+                
+                <div class="contact-info">
+                    <h2>Get A Free Quote</h2>
+                    <p>Whether you need a quick repair, a full property wash, or a completely new driveway, Joel and the team at Take Care Property Maintenance are ready to deliver reliable, high-quality workmanship.</p>
+                    
+                    <div class="info-block">
+                        <h4>Call Joel Preece</h4>
+                        <a href="tel:0273361513">027 336 1513</a>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>Email Us</h4>
+                        <a href="mailto:jkpreeceltd@outlook.com">jkpreeceltd@outlook.com</a>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>Service Area</h4>
+                        <span style="color: var(--text-light); font-size: 1.05rem;">Based in Rakaia, proudly servicing the entire Ashburton District.</span>
+                    </div>
+
+                    <div style="margin-top: 40px;">
+                        <h4>Follow Our Work</h4>
+                        <div class="social-icons" style="margin-top: 10px;">
+                            <a href="https://www.facebook.com/profile.php?id=61574331402169" target="_blank" aria-label="Facebook" style="background-color: var(--primary);">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST" id="quoteForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="027 123 4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="serviceType">What do you need help with?</label>
+                            <select id="serviceType" name="serviceType" class="form-control">
+                                <option value="" disabled selected>Select a primary service...</option>
+                                <option value="Exterior Cleaning">Exterior Cleaning & Moss Kill</option>
+                                <option value="Roofing Drainage">Roofing & Drainage</option>
+                                <option value="Hardscaping Driveways">Hardscaping & Driveways</option>
+                                <option value="Landscaping Grounds">Landscaping & Grounds</option>
+                                <option value="General Maintenance">General Property Maintenance</option>
+                                <option value="Other">Other / Unsure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Please describe what you need done..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+</div>
+
+<script>
+    // Optional: Simple script to pre-select a service if user clicked a specific 'Learn More' button from the homepage
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        const selectBox = document.getElementById('serviceType');
+        
+        if(service && selectBox) {
+            const mapping = {
+                'cleaning': 'Exterior Cleaning',
+                'roofing': 'Roofing Drainage',
+                'hardscaping': 'Hardscaping Driveways',
+                'landscaping': 'Landscaping Grounds',
+                'general': 'General Maintenance',
+                'network': 'Other'
+            };
+            if(mapping[service]) {
+                selectBox.value = mapping[service];
+            }
+        }
+    });
+</script>
+</body>
+</html>

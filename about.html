@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Take Care Property Maintenance</title>
+    <meta name="description" content="Learn more about Take Care Property Maintenance. We are a family-owned, local business based in Rakaia, delivering reliable workmanship to the Ashburton District.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1abc9c; 
+            --primary-hover: #16a085;
+            --text-dark: #2c3e50; 
+            --text-light: #7f8c8d; 
+            --bg-light: #f8f9fa; 
+            --white: #ffffff;
+            --border-color: #e0e6ed;
+            
+            --font-headers: 'Roboto', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --max-width: 1280px;
+            --section-pad: 80px 20px;
+        }
+
+        /* --- Global Reset & Basics --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text-light);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-headers);
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease, background-color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* --- Modular Layout System --- */
+        .mainframe {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main { flex-grow: 1; }
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section { padding: var(--section-pad); }
+        .section-alt { background-color: var(--bg-light); }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        /* --- Global Components --- */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- Injected Header Styles --- */
+        .control-bar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { font-family: var(--font-headers); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
+        .main-nav ul { display: flex; gap: 30px; }
+        .main-nav a { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; }
+        .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
+
+        /* --- About Page Specific Styles --- */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('images/about-hero.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            color: #f1f2f6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        .story-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .story-image img {
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Values Grid */
+        .value-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-bottom: 3px solid var(--primary);
+        }
+        .value-card h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .value-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* CTA Banner */
+        .cta-banner { background-color: var(--text-dark); color: var(--white); text-align: center; }
+        .cta-banner h2 { color: var(--white); }
+
+        /* --- Injected Footer Styles --- */
+        .site-footer { background-color: var(--text-dark); color: var(--white); padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background-color: var(--primary); }
+        .footer-col p, .footer-col li { color: #bdc3c7; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--primary); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .social-icons a:hover { background-color: var(--primary); }
+        .social-icons svg { width: 20px; height: 20px; fill: var(--white); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; color: #95a5a6; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-nav, .header-cta { display: none; }
+            .mobile-toggle { display: block; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 50px 20px; }
+            .page-header h1 { font-size: 2.2rem; }
+            .grid-2 { gap: 30px; }
+        }
+    </style>
+
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+<body>
+<div class="mainframe">
+    
+    <site-header></site-header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Local roots, family values, and a commitment to doing the job right the first time.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid-2">
+                <div class="story-image">
+                    <img src="images/joel-portrait.jpg" alt="Joel Preece, Owner of Take Care Property Maintenance">
+                </div>
+                <div class="story-text">
+                    <h2>Meet Joel Preece</h2>
+                    <p>Take Care Property Maintenance isn't a faceless franchise. We are a proud, family-owned business deeply rooted in Rakaia, providing dedicated property services across the entire Ashburton District.</p>
+                    <p>I started this business because I saw a genuine need for tradespeople who simply do what they say they are going to do. When you own a home or a lifestyle block, the maintenance list never truly ends. It can be stressful trying to find someone reliable to handle it.</p>
+                    <p>That's where we step in. From clearing stubborn lichen off your roof to pouring a fresh concrete driveway, our approach is straightforward: we communicate clearly, we turn up on time, and we get the job done properly.</p>
+                    <p>If we come across a highly specialized task outside our scope, our contractor networking promise means we will help you find a trusted local professional who can handle it. We believe in honest, transparent service from start to finish.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2>Our Core Values</h2>
+                    <p>The principles that guide every job we undertake in the Ashburton District.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="value-card">
+                        <span class="value-icon">✓</span>
+                        <h3>Reliable Workmanship</h3>
+                        <p>We don't cut corners. We use the right tools and treatments to ensure every repair, wash, and build stands the test of time.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <span class="value-icon">💬</span>
+                        <h3>Clear Communication</h3>
+                        <p>No jargon, no hidden fees, and no leaving you in the dark. We keep you updated before, during, and after the project.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <span class="value-icon">🏡</span>
+                        <h3>Family-Owned & Local</h3>
+                        <p>Based in Rakaia, we are a part of the community we serve. Our reputation matters, which is why we treat your property like our own.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-banner">
+            <div class="container">
+                <h2>Got a maintenance job you need sorted?</h2>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">Reach out to Joel today to discuss your property needs and get a free quote.</p>
+                <a href="contact.html" class="btn-primary" style="font-size: 1.1rem; padding: 15px 30px;">Get Your Free Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+</div>
+</body>
+</html>

@@ -18,8 +18,8 @@ class SiteFooter extends HTMLElement {
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="index.html#services">Our Services</a></li>
-                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="services.html">Our Services</a></li>
+                            <li><a href="about.html">About Us</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -35,7 +35,7 @@ class SiteFooter extends HTMLElement {
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; ${currentYear} Take Care Property Maintenance. All Rights Reserved. NZBN: 9429053202987</p>
-                    <p><small>Website built by Creative Startup NZ</small></p>
+                    <p><small>Website built by <a href="https://creativestartupnz.com/service-5-page-html-website.php" target="_blank" rel="noopener">Creative Startup NZ</a></small></p>
                 </div>
             </div>
         </footer>

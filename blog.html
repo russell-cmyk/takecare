@@ -87,6 +87,14 @@
         .main-nav a:hover, .main-nav a.active { color: var(--primary); }
         .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
 
+        /* --- Make Custom Header Sticky --- */
+        site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: block;
+        }
+
         /* --- Blog Hub Specific Styles --- */
         .page-header {
             background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('images/blog-hero.jpg') center/cover no-repeat;

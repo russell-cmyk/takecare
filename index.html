@@ -100,7 +100,14 @@
         .main-nav a { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; }
         .main-nav a:hover, .main-nav a.active { color: #1abc9c; }
         .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
-
+        
+/* --- Make Custom Header Sticky --- */
+        site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: block;
+        }
         /* --- Homepage Styles --- */
         .hero-section {
             background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('images/hero-house.jpg') center/cover no-repeat;

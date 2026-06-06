@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Take Care Property Maintenance</title>
+    <meta name="description" content="Comprehensive property maintenance in the Ashburton District. Expert exterior cleaning, roofing repairs, hardscaping, driveways, and landscaping.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            var(--primary): #1abc9c; 
+            --primary-hover: #16a085;
+            --text-dark: #2c3e50; 
+            --text-light: #7f8c8d; 
+            --bg-light: #f8f9fa; 
+            --white: #ffffff;
+            --border-color: #e0e6ed;
+            
+            --font-headers: 'Roboto', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --max-width: 1280px;
+            --section-pad: 80px 20px;
+        }
+
+        /* --- Global Reset & Basics --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text-light);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-headers);
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease, background-color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+        /* --- Modular Layout System --- */
+        .mainframe { display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        .section { padding: var(--section-pad); }
+        .section-alt { background-color: var(--bg-light); }
+        
+        /* Grid Systems */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; }
+        .align-center { align-items: center; }
+
+        /* --- Global Components --- */
+        .btn-primary {
+            display: inline-block;
+            background-color: #1abc9c;
+            color: var(--white);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 2px solid #1abc9c;
+            color: #1abc9c;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background-color: #1abc9c; color: var(--white); }
+
+        /* --- Injected Header Styles --- */
+        .control-bar { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { font-family: var(--font-headers); font-size: 1.5rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
+        .main-nav ul { display: flex; gap: 30px; }
+        .main-nav a { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; }
+        .main-nav a:hover, .main-nav a.active { color: #1abc9c; }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
+
+        /* --- Services Page Specific Styles --- */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('images/services-hero.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        .page-header p { font-size: 1.2rem; color: #f1f2f6; max-width: 700px; margin: 0 auto; }
+
+        .service-detail-text h2 { color: #1abc9c; font-size: 2.2rem; margin-bottom: 15px; }
+        .service-detail-text p { font-size: 1.1rem; margin-bottom: 20px; }
+        .service-detail-list { margin-bottom: 30px; }
+        .service-detail-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+        .service-detail-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1abc9c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .service-image-container img {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CTA Banner */
+        .cta-banner { background-color: var(--text-dark); color: var(--white); text-align: center; }
+        .cta-banner h2 { color: var(--white); }
+
+        /* --- Injected Footer Styles --- */
+        .site-footer { background-color: var(--text-dark); color: var(--white); padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background-color: #1abc9c; }
+        .footer-col p, .footer-col li { color: #bdc3c7; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-col a:hover { color: #1abc9c; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .social-icons a:hover { background-color: #1abc9c; }
+        .social-icons svg { width: 20px; height: 20px; fill: var(--white); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; color: #95a5a6; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-nav, .header-cta { display: none; }
+            .mobile-toggle { display: block; }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 50px 20px; }
+            .page-header h1 { font-size: 2.2rem; }
+            .grid-2 { gap: 40px; }
+            .mobile-reverse { display: flex; flex-direction: column-reverse; }
+        }
+    </style>
+
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+<body>
+<div class="mainframe">
+    
+    <site-header></site-header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>From clearing gutters to building driveways. Professional property maintenance solutions for Rakaia and the Ashburton District.</p>
+            </div>
+        </section>
+
+        <section class="section" id="roofing">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>Roofing & Spouting</h2>
+                    <p><strong>Repairs or replacement of Corrugated iron roofing, spouting and Insulation of gutter guard</strong></p>
+                    <p>We carry out repairs and replacements for corrugated iron roofing, spouting, and gutter guard systems to help keep your property protected from the weather and functioning as it should.</p>
+                    <p>This can include repairing damaged or leaking sections, replacing worn or rusted roofing iron, fixing loose or failing spouting, and installing gutter guard to reduce the build-up of leaves, debris and to keep rodents out. Our service is focused on extend the life of your roofing and drainage system while keeping your home or building looking tidy and well maintained.</p>
+                    <a href="contact.html?service=roofing" class="btn-outline">Request a Quote</a>
+                </div>
+                <div class="service-image-container">
+                    <img src="images/serv-roof.jpg" alt="Roof and gutter repair work">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="landscaping">
+            <div class="container grid-2 align-center mobile-reverse">
+                <div class="service-image-container">
+                    <img src="images/serv-land.jpg" alt="Tree trimming and garden cleanup services">
+                </div>
+                <div class="service-detail-text">
+                    <h2>Landscaping, Decks and Fencing</h2>
+                    <p><strong>Update your property with a new deck and landscaping or cleanup the old one</strong></p>
+                    <p>Transform your property with a new deck and refreshed landscaping or let us restore and tidy your existing outdoor space. We can build and upgrade decks to create a practical, attractive area for relaxing and entertaining, while also improving the surrounding landscaping to better suit the look and layout of your property. If your outdoor area is looking tired or overgrown, we can help clean it up by clearing debris, trimming back untidy areas, and carrying out general improvements to leave it looking neat, functional, and well cared for.</p>
+                    <p>Let me know what you would like done.</p>
+                    <a href="contact.html?service=landscaping" class="btn-outline">Request a Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="hardscaping">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>Concrete Driveways and outdoor areas</h2>
+                    <p><strong>New Concrete drive or outdoor area or clean up your existing one.</strong></p>
+                    <p>New Concrete drive or outdoor area or clean up your existing one.</p>
+                    <p>What would you like? Coloured, polished or an exposed concrete area or would you like your existing concrete area cleaned? We can clean it with an Environmentally friendly chemical wash and then seal it.</p>
+                    <p>Let me know what you would like done.</p>
+                    <a href="contact.html?service=hardscaping" class="btn-outline">Request a Quote</a>
+                </div>
+                <div class="service-image-container">
+                    <img src="images/serv-hard.jpg" alt="Newly constructed concrete driveway and fencing">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="pest">
+            <div class="container grid-2 align-center mobile-reverse">
+                <div class="service-image-container">
+                    <div style="background-color: var(--white); border: 1px solid var(--border-color); border-radius: 8px; padding: 40px; text-align: center;">
+                        <h3 style="color: #1abc9c; font-size: 1.5rem; margin-bottom: 15px;">F@ZeropestsCHCH</h3>
+                        <p style="color: var(--text-dark); margin-bottom: 5px;"><strong>Call Mike Legge</strong></p>
+                        <p style="margin-bottom: 15px;"><a href="tel:0225073787" style="color: #1abc9c; font-weight: bold;">022 507 3787</a></p>
+                        <p style="color: var(--text-dark); margin-bottom: 5px;"><strong>Email Us</strong></p>
+                        <p><a href="mailto:info@zeropests.co.nz" style="color: #1abc9c; font-weight: bold;">info@zeropests.co.nz</a></p>
+                    </div>
+                </div>
+                <div class="service-detail-text">
+                    <h2>Pest Management</h2>
+                    <p><strong>Spider, Fly or Rodents.</strong></p>
+                    <p>For pest management we recommend contacting Mike legge from zeropests.</p>
+                    <p>He has experience and a good reputation for controlling spiders, cluster flies and any problems around your property from rodents getting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="network">
+            <div class="container grid-2 align-center">
+                <div class="service-detail-text">
+                    <h2>Contractor Networking</h2>
+                    <p><strong>Reliable service you can feel confident in.</strong></p>
+                    <p>We believe in providing an honest, transparent, and reliable service you can feel confident in. If we come across a task that requires specialist expertise, we will work with or consult trusted professionals to make sure the job is completed properly and to a high standard.</p>
+                    <p>Some parts of our work, we team up with trusted subcontractors so we can deliver the best possible result for our customers. For example, with concrete driveways, we take care of all the preparation and groundwork before working alongside an experienced concrete specialist for the pour. For larger or more complex roofing jobs, we also work with roofing contractors to ensure the work is completed safely, efficiently, and to a high standard.</p>
+                    <a href="contact.html?service=network" class="btn-outline">Request a Quote</a>
+                </div>
+                <div class="service-image-container">
+                    <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 40px; text-align: center;">
+                        <h3 style="color: #1abc9c; font-size: 1.5rem; margin-bottom: 10px;">Trusted Partnerships</h3>
+                        <p style="color: var(--text-light);">We partner with local specialists to ensure every job, big or small, is completed to the highest standard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="cleaning">
+            <div class="container grid-2 align-center mobile-reverse">
+                 <div class="service-image-container">
+                    <img src="images/serv-wash.jpg" alt="House exterior washing and lichen removal">
+                </div>
+                <div class="service-detail-text">
+                    <h2>Exterior Cleaning</h2>
+                    <p><strong>Exterior washing Cleaning, Gutters, Downpipes, Drainage Cleaning and Lichen treatments.</strong></p>
+                    <p>External Cleaning, Gutters, Downpipes, Drainage Cleaning, Lichen removal.</p>
+                    <p>We clean both the inside and outside of your gutters, removing built-up leaves, dirt, moss, and any lichen that may be starting to grow. As part of the service, we also inspect and clear blocked downpipes to make sure rainwater can flow away properly and your guttering system is working as it should. While cleaning, we check for signs of wear or damage, including leaks, loose sections, rust, and any seals or silicone that may need replacing. If we find a small issue, we will fix it on the spot where possible. If a larger repair is needed, we can provide a quote and arrange to complete the work at a later stage, maybe during your next scheduled gutter clean if that suits you better.</p>
+                    <p>We can also clean your windows at the end of the job, leaving the outside of your property looking fresh, tidy, and well maintained.</p>
+                    <div style="background: var(--white); padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); margin-top: 20px;">
+                        <p>Provid us with your details and we will send you a quote base off google maps</p>
+                        <p><strong>Call Joel Preece</strong><br><a href="tel:0273361513" style="color:#1abc9c;">027 336 1513</a></p>
+                        <p><strong>Email Us</strong><br><a href="mailto:jkpreeceltd@outlook.com" style="color:#1abc9c;">jkpreeceltd@outlook.com</a></p>
+                        <p><strong>Service Area</strong><br>Based in Rakaia, proudly servicing Selwyn and Ashburton District.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-banner">
+            <div class="container">
+                <h2>Ready to tick those jobs off the list?</h2>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">Contact Joel today for a reliable quote and friendly local service.</p>
+                <a href="contact.html" class="btn-primary" style="background-color: var(--white); color: var(--text-dark); font-size: 1.1rem; padding: 15px 30px;">Request a Free Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+</div>
+</body>
+</html>
